@@ -1,15 +1,15 @@
-package com.maddenabbott.j2html.generate;
-
-import java.util.List;
+package tech.tresearchgroup.html2j;
 
 import org.jsoup.nodes.Node;
 import org.jsoup.parser.Parser;
 import org.jsoup.select.NodeTraversor;
 
-public class J2HtmlGenerator {
+import java.util.List;
+
+public class HTMLGenerator {
   public String generate(String html) {
     StringBuilder buffer = new StringBuilder();
-    parse(html).forEach(node -> NodeTraversor.filter(new J2HtmlNodeFilter(buffer), node));
+    parse(html).forEach(node -> NodeTraversor.filter(new HTMLNodeFilter(buffer), node));
     return buffer.toString();
   }
 

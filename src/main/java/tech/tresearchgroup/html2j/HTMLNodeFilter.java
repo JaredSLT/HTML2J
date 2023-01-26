@@ -1,21 +1,20 @@
-package com.maddenabbott.j2html.generate;
+package tech.tresearchgroup.html2j;
 
 import org.jsoup.nodes.Attribute;
 import org.jsoup.nodes.Attributes;
 import org.jsoup.nodes.Element;
 import org.jsoup.nodes.Node;
 import org.jsoup.nodes.TextNode;
-import org.jsoup.select.NodeFilter;
 
 import static java.util.stream.Collectors.joining;
 import static org.jsoup.select.NodeFilter.FilterResult.CONTINUE;
 
-class J2HtmlNodeFilter implements NodeFilter {
+class HTMLNodeFilter implements org.jsoup.select.NodeFilter {
   private final StringBuilder buffer;
 
   private int previousDepth = -1;
 
-  J2HtmlNodeFilter(final StringBuilder buffer) {
+  HTMLNodeFilter(final StringBuilder buffer) {
     this.buffer = buffer;
   }
 
@@ -43,6 +42,7 @@ class J2HtmlNodeFilter implements NodeFilter {
 
   @Override
   public FilterResult tail(final Node node, final int depth) {
+    System.out.println("Tail: " + node.nodeName());
     if (node instanceof Element) {
       return tail((Element) node);
     }
@@ -51,6 +51,7 @@ class J2HtmlNodeFilter implements NodeFilter {
   }
 
   private FilterResult head(TextNode textNode) {
+    System.out.println("Head text: " + textNode.text());
     buffer.append("\"")
         .append(textNode.text())
         .append("\"");
@@ -58,6 +59,7 @@ class J2HtmlNodeFilter implements NodeFilter {
   }
 
   private FilterResult head(Element element) {
+    System.out.println("Head name: " + element.tagName());
     buffer.append(element.tagName())
         .append("(");
 
@@ -65,6 +67,7 @@ class J2HtmlNodeFilter implements NodeFilter {
   }
 
   private FilterResult tail(Element element) {
+    System.out.println("Tail: " + element.attributes());
     buffer.append(")")
         .append(handle(element.attributes()));
 
