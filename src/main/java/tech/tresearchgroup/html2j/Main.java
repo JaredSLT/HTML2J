@@ -3,10 +3,17 @@ package tech.tresearchgroup.html2j;
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
-import java.nio.file.Path;
+import java.util.List;
 
 public class Main {
-    private static void main(String[] args) throws IOException {
-        System.out.println(new HTMLGenerator().generate(Files.readAllLines(Path.of(new File("test.html").toPath().toUri())).toString()));
+    public static void main(String[] args) throws IOException {
+        List<String> data = Files.readAllLines(new File("test.html").toPath());
+        StringBuilder stringBuilder = new StringBuilder();
+        for (String line : data) {
+            stringBuilder.append(line);
+        }
+        String input = stringBuilder.toString();
+        System.out.println(input);
+        System.out.println(new J2HTMLGenerator().generate(input));
     }
 }

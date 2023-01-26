@@ -6,10 +6,10 @@ import org.jsoup.select.NodeTraversor;
 
 import java.util.List;
 
-public class HTMLGenerator {
-  public String generate(String html) {
+public class J2HTMLGenerator {
+  public String generate(String data) {
     StringBuilder buffer = new StringBuilder();
-    parse(html).forEach(node -> NodeTraversor.filter(new HTMLNodeFilter(buffer), node));
+    parse(data).forEach(node -> NodeTraversor.filter(new HTMLNodeFilter(buffer), node));
     return buffer.toString();
   }
 

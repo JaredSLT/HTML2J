@@ -1,1 +1,55 @@
-<!DOCTYPE html><html><div class="body"><div class="verticalCenter"><form method="POST" action="/login"><label class="overviewLabel">Login</label><br><br><label>Username: </label><input type="text" id="username" name="username"><br><br><label>Password: </label><input type="password" id="password" name="password"><br><br><button type="submit" id="login">Login</button><br><a href="/reset" id="reset">Reset password</a><br><a href="/register">Register new account</a></form></div></div></body></html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link href="/assets/spectre.min.css" rel="stylesheet">
+    <link href="/assets/gen/styles.min.css" rel="stylesheet">
+    <meta charset="UTF-8" content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Baby Galago Server" name="description">
+    <title>Baby Galago Server</title>
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico">
+</head>
+<body>
+<header class="navbar">
+    <section class="navbar-section"></section>
+    <section class="navbar-center">
+        <div class="dropdown"><a class="dropdown-toggle" href="#" tabindex="0">
+            <figure class="btn btn-link nav-btn avatar"><img alt="blah" src="/assets/placeholder.webp"><i
+                    class="avatar-presence offline"></i></figure>
+            <i class="icon icon-caret"></i></a>
+            <ul class="menu">
+                <li class="menu-item"><a href="/login"><i class="fas fa-sign-in-alt"> Login</i></a></li>
+            </ul>
+        </div>
+    </section>
+    <section class="navbar-section">
+        <form action="/search" method="POST">
+            <div class="input-group input-inline"><input class="form-input" placeholder="Search" type="text"
+                                                         name="query">
+                <button class="btn input-group-btn fa fa-search"></button>
+            </div>
+        </form>
+    </section>
+</header>
+<div class="sidebar active">
+    <div class="flex-centered"><img alt="Galago logo" class="sidebar-logo" src="/assets/logo.webp"></div>
+    <ul class="nav">
+        <li class="nav-item"><a class="btn btn-link nav-btn fas fa-sign-in-alt" href="/login"> Login</a></li>
+        <div class="divider"></div>
+        <li class="nav-item"><a class="btn btn-link nav-btn fa fa-user-circle" href="/forum/index"> Forum</a></li>
+        <li class="nav-item"><a class="btn btn-link nav-btn fa fa-info-circle" href="/about"> About</a></li>
+    </ul>
+    <section class="sidebar-footer"><a class="btn btn-link nav-btn" href="/licenses"><i
+            class="fa fa-copyright fa-rotate-180"></i> 2022 T.R.G.</a></section>
+</div>
+<div class="body">
+    <div class="verticalCenter">
+        <form method="POST" action="/login"><label
+                class="overviewLabel">Login</label><br><br><label>Username: </label><input type="text" id="username"
+                                                                                           name="username"><br><br><label>Password: </label><input
+                type="password" id="password" name="password"><br><br>
+            <button type="submit" id="login">Login</button>
+            <br><a href="/reset" id="reset">Reset password</a><br><a href="/register">Register new account</a></form>
+    </div>
+</div>
+</body>
+</html>

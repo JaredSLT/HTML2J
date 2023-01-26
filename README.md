@@ -4,7 +4,7 @@ This [project](https://github.com/JaredSLT/j2html-generator) was originally crea
 
 Any good will/sentiments should be directed to him.
 
-This project allows you to develop your frontend in HTML, CSS & Javascript while using native Java code in the backend. The reason you would want this is traditional template engines are usually very slow. J2HTML is a means of generating HTML code using Java, which means you can get the functionality of using a template engine, without the performance loss. The only issue is; developing a front-end using J2HTML can be... unwanted. In comes HTML2J. Develop your front-end as you always have, then have it converted for faster use. Think of it like compressing a file.
+This project allows you to develop your frontend in HTML, CSS & Javascript while using native Java code in the backend. The reason you would want this is traditional template engines are usually very slow. [J2HTML](https://github.com/tipsy/j2html) is a means of generating HTML code using Java, which means you can get the functionality of using a template engine, without the performance loss. The only issue is; developing a front-end using J2HTML can be... unwanted. In comes HTML2J. Develop your front-end as you always have, then have it converted for faster use. Think of it like compressing a file.
 
 My testing shows that for very small fragments:
 
