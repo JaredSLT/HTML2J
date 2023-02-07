@@ -23,7 +23,7 @@ class HTMLNodeFilter implements org.jsoup.select.NodeFilter {
             return CONTINUE;
         }
         if (depth <= previousDepth) {
-            buffer.append(",");
+            buffer.append(",\n");
         }
         previousDepth = depth;
         if (node instanceof Element) {
@@ -52,13 +52,13 @@ class HTMLNodeFilter implements org.jsoup.select.NodeFilter {
 
     private FilterResult head(Element element) {
         System.out.println("Head name: " + element.tagName());
-        buffer.append(element.tagName()).append("(");
+        buffer.append(element.tagName()).append("(\n");
         return CONTINUE;
     }
 
     private FilterResult tail(Element element) {
         System.out.println("Tail: " + element.attributes());
-        buffer.append(")").append(handle(element.attributes()));
+        buffer.append("\n").append(")").append(handle(element.attributes()));
         return CONTINUE;
     }
 
@@ -67,6 +67,6 @@ class HTMLNodeFilter implements org.jsoup.select.NodeFilter {
     }
 
     private String handle(final Attribute attribute) {
-        return ".attr(\"" + attribute.getKey() + "\", \"" + attribute.getValue() + "\")";
+        return "\n" + ".attr(\"" + attribute.getKey() + "\", \"" + attribute.getValue() + "\")";
     }
 }
